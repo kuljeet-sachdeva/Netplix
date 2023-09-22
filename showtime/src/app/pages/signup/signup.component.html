@@ -1,0 +1,159 @@
+<app-header></app-header>
+<section>
+  <div class="container ">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-xl-11">
+        <!-- <div class="card"> -->
+        <div class="card-body p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-danger">Sign up</p>
+              <form class="mx-1 mx-md-4" [formGroup]="signUpForm" (ngSubmit)="sendSignupData()">
+                <div class="mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw" style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="name">Your Name*</label>
+                  <input type="text" id="name" class="form-control" formControlName="name" />
+                  <ng-container *ngFor="let error of error_messages.name">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('name').hasError(error.type) && (signUpForm.get('name').dirty || signUpForm.get('name').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"
+                    style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="city">Phone Number*</label>
+                  <input type="number" id="mobile" class="form-control"
+                    formControlName="mobile" />
+                  <ng-container *ngFor="let error of error_messages.mobile">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('mobile').hasError(error.type) && (signUpForm.get('mobile').dirty || signUpForm.get('mobile').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"
+                    style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="city">Your City*</label>
+                  <input type="text" id="city" class="form-control"
+                    formControlName="city" />
+                  <ng-container *ngFor="let error of error_messages.city">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('city').hasError(error.type) && (signUpForm.get('city').dirty || signUpForm.get('city').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                  <div class="error-message"
+                    *ngIf="signUpForm.hasError('invalidCity') && (signUpForm.get('city').dirty || signUpForm.get('city').touched)">
+                      Please put a valid city name .
+                  </div>
+                </div>
+
+                <!-- <div class="mb-4">
+                  <label class="form-label text-danger" for="profilePicture">Profile
+                    Picture</label>
+                    <input required type="file" id="profilePicture" class="form-control" name="profilePicture" (change)="onProfilePictureSelected($event)" accept="image/*">
+                    <img *ngIf="previewImage" [src]="previewImage" alt="Profile Picture Preview" width="100">
+
+                </div> -->
+
+                <div class="mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"
+                    style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="address">Your
+                    Address*</label>
+                  <input type="text" id="address" class="form-control"
+                    formControlName="address" />
+                  <ng-container *ngFor="let error of error_messages.address">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('address').hasError(error.type) && (signUpForm.get('address').dirty || signUpForm.get('address').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="mb-4">
+                  <i class="fas fa-envelope fa-lg me-3 fa-fw "
+                    style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="email">Your Email*</label>
+                  <input type="email" id="email" class="form-control"
+                    formControlName="email" />
+                  <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('email').hasError(error.type) && (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="mb-4">
+                  <i class="fas fa-key fa-lg me-3 fa-fw" style="color: #E50914;"></i>
+                  <label class="form-label text-danger" for="password">Password*</label>
+                  <input type="password" id="password" class="form-control"
+                    formControlName="password" />
+                  <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('password').hasError(error.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <div class="mb-4">
+                  <i class="fas fa-key fa-lg me-3 fa-fw"
+                    style="float:left;color: #E50914;"></i>
+                  <label class="form-label text-danger" for="confirmPassword">Repeat
+                    your password*</label>
+                  <input type="password" id="confirmPassword"
+                    class="form-control" formControlName="confirmPassword" />
+                  <ng-container
+                    *ngFor="let error of error_messages.confirmPassword">
+                    <div class="error-message"
+                      *ngIf="signUpForm.get('confirmPassword').hasError(error.type) && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+
+                  <div class="error-message"
+                    *ngIf="signUpForm.hasError('passwordMismatch')">
+                    Confirm password must be same as password.
+                  </div>
+                </div>
+
+                <div
+                  class="form-check d-flex justify-content-center mb-5 text-danger">
+                  <input class="form-check-input me-2" required type="checkbox"
+                    id="terms" formControlName="terms" />
+                  <label class="form-check-label form-label" for="terms">
+                    I agree to all statements in <a href="#" class="link-danger">Terms
+                      of service</a>
+                  </label>
+                </div>
+
+                <div
+                  class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 text-danger">
+                  <button type="submit" class="btn btn-danger btn-lg" routerLink="/signup" [disabled]="!signUpForm.valid">Register</button>
+                </div>
+
+              </form>
+
+            </div>
+            <div
+              class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+              <img
+                src="https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=600"
+                class="img-fluid signup-cover" alt="Sample image">
+
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</section>

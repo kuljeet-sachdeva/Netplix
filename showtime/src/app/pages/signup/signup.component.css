@@ -1,0 +1,13 @@
+p {
+    font-family: Lato;
+  }
+  .error-message {
+    color:red;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+  .signup-cover{
+    height: 580px;
+    margin-left: 30px;
+}

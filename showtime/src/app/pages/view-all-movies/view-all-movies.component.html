@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="container main-area">
+
+  <!-- Other Movie Sections -->
+  <div class="row">
+    <div class="col" *ngFor="let section of movieSections">
+      <h3 class="section-heading">{{ section.title }}</h3>
+      <div class="row poster-row">
+        <ng-container *ngFor="let movie of section">
+          <img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}"
+            class="rowimg largeposter" alt="..."
+            [routerLink]="['/movie', movie.id]" />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="load-more-area">
+
+    <button class="btn btn-primary loadMore" (click)="loadMore()">Load more</button>
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+button
+{
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+button:hover
+{
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+img{
+    width: 100%;
+    cursor: pointer;
+}
+
+h5
+{
+    color: #ffffff;
+}
+.space-top{
+    margin-top:3em;
+}
+.search-fields{
+    display: flex;
+    justify-content: center;
+}
+.search-fields input{
+    width:80%;
+}

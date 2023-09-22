@@ -1,0 +1,27 @@
+
+<app-header></app-header>
+  <div class="admin-page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <div class="box">
+        <a class="navbar-brand" routerLink="/admin">ADMIN DASHBOARD</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div >
+            <ul style="--length: 5" role="list">
+                <li style="--i: 2"><a routerLink="/admin/users"><h3>View All Users</h3></a></li>
+                <li style="--i: 3"><a routerLink="/movies"><h3>View All Movies</h3></a></li>
+                <li style="--i: 4"><a routerLink="/admin/movies"><h3>View Added Movies</h3></a></li>
+                <li style="--i: 5"><a routerLink="/admin/add-movie"><h3>Add Movie</h3></a></li>
+                <!-- <li style="--i: 6"><a routerLink="/admin/update-movie"><h3>Update Movie</h3></a></li> -->
+              </ul>
+           
+        </div>
+      </div>
+    </nav>
+    <!-- <router-outlet></router-outlet> -->
+  </div>
+  
+  
